@@ -7,7 +7,12 @@ of `Main.elm`.
 
 The fix relies on the use of `Element.Keyed`, and
 follows the solution in Ellie: https://ellie-app.com/3yQr7JP82BPa1/7
+Many thanks to Matthew Griffith for help with this.
 
 To run the project, cd into this directory,
 execute `elm-reactor`, go to `localhost:8000`
 in your browser, and select `Main.elm`
+
+
+*Note.*  The use of `counter` appears to be essential.
+Probably some weird stuff in the virtual DOM that I don't understand.
