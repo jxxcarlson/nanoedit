@@ -1,12 +1,13 @@
-This project demonstrates a bug in Elm.
+Version 3.2 of mdgriffith/style-elements package
+allows one to work around the jumping cursor
+bug in a convenient way that does not introduce
+additional misbehavior.  See the code for
+`renderInput` and its use, lines 68-73
+of `Main.elm`.
+
+The fix relies on the use of `Element.Keyed`, and
+follows the solution in Ellie: https://ellie-app.com/3yQr7JP82BPa1/7
 
 To run the project, cd into this directory,
 execute `elm-reactor`, go to `localhost:8000`
 in your browser, and select `Main.elm`
-
-To demonstrate the bug, edit the selected document
-in the yellow textarea, then select the other document.
-You will notice that the change is reflected in the title
-and in the gray text window, but not the yellow textarea.
-
-Ellie: https://ellie-app.com/3yQr7JP82BPa1/7
