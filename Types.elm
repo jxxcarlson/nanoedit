@@ -8,6 +8,7 @@ type alias Document =
 type alias Model =
     { currentDocument : Document
     , documentList : List Document
+    , counter : Int
     }
 
 

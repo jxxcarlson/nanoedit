@@ -5,6 +5,9 @@
 module Main exposing (..)
 
 import Html exposing (program)
+import Html.Attributes as HA
+import Html.Events as HE
+import Html.Keyed as Keyed
 import Element.Events exposing (onClick, onInput)
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -53,7 +56,7 @@ main =
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model doc1 docs, Cmd.none )
+    ( Model doc1 docs 0, Cmd.none )
 
 
 view model =
@@ -64,10 +67,32 @@ view model =
             , (el Title [ width (px 400), height (px 40), padding 8 ] (text model.currentDocument.title))
             , row None
                 [ spacing 10 ]
-                [ (textArea InputBox [ padding 20, onInput InputContent ] (model.currentDocument.content))
-                , (el Box [ width (px 400), height (px 400), padding 20 ] (text model.currentDocument.content))
-                ]
+                [ html (renderInput model) ]
+            , (el Box [ width (px 400), height (px 100), padding 20 ] (text model.currentDocument.content))
             ]
+
+
+
+-- renderInput : Model -> Html Msg
+
+
+renderInput model =
+    Keyed.node "div"
+        []
+        [ ( toString model.counter
+          , Html.textarea
+                [ HA.defaultValue model.currentDocument.content
+                , HE.onInput InputContent
+                , HA.style
+                    [ ( "width", "380px" )
+                    , ( "height", "80px" )
+                    , ( "background-color", "yellow" )
+                    , ( "padding", "10px" )
+                    ]
+                ]
+                []
+          )
+        ]
 
 
 update msg model =

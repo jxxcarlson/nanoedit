@@ -11,6 +11,7 @@ selectDocument : Model -> Document -> ( Model, Cmd Msg )
 selectDocument model document =
     ( { model
         | currentDocument = document
+        , counter = model.counter + 1
       }
     , Cmd.none
     )
@@ -42,7 +43,7 @@ updateContent model content =
 documentListView : Model -> Element Styles variation Msg
 documentListView model =
     column TOC
-        [ padding 20, spacing 10, width (px 300), height (px 200) ]
+        [ padding 20, spacing 10, width (px 300), height (px 100) ]
         (List.map (viewTitle model.currentDocument) model.documentList)
 
 
