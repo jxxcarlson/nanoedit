@@ -67,13 +67,13 @@ view model =
             , (el Title [ width (px 400), height (px 40), padding 8 ] (text model.currentDocument.title))
             , Keyed.row None
                 [ spacing 10 ]
-                [ ( (toString model.counter), renderInput1 model ) ]
+                [ ( (toString model.counter), renderInput model ) ]
             , (el Box [ width (px 400), height (px 100), padding 20 ] (text model.currentDocument.content))
             , (el Box [ width (px 100), height (px 40), padding 12 ]) (text (toString model.counter))
             ]
 
 
-renderInput1 model =
+renderInput model =
     textArea InputBox [ width (px 400), height (px 100), padding 20, onInput InputContent ] (model.currentDocument.content)
 
 
