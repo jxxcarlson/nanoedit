@@ -67,8 +67,7 @@ view model =
             , (el Title [ width (px 400), height (px 40), padding 8 ] (text model.currentDocument.title))
             , row None
                 [ spacing 10 ]
-                --[ renderInput1 model ]
-                [ renderInput2 model ]
+                [ renderInput1 model, renderInput2 model ]
             , (el Box [ width (px 400), height (px 100), padding 20 ] (text model.currentDocument.content))
             , (el Box [ width (px 100), height (px 40), padding 12 ]) (text (toString model.counter))
             ]
@@ -90,7 +89,7 @@ renderInput2 model =
                     , HA.style
                         [ ( "width", "380px" )
                         , ( "height", "80px" )
-                        , ( "background-color", "yellow" )
+                        , ( "background-color", "orange" )
                         , ( "padding", "10px" )
                         ]
                     ]
