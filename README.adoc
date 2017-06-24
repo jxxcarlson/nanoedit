@@ -8,3 +8,5 @@ To demonstrate the bug, edit the selected document
 in the yellow textarea, then select the other document.
 You will notice that the change is reflected in the title
 and in the gray text window, but not the yellow textarea.
+
+Ellie: https://ellie-app.com/3yQr7JP82BPa1/7
