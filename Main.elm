@@ -7,7 +7,7 @@ module Main exposing (..)
 import Html exposing (program)
 import Html.Attributes as HA
 import Html.Events as HE
-import Html.Keyed as Keyed
+import Element.Keyed as Keyed
 import Element.Events exposing (onClick, onInput)
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -65,9 +65,9 @@ view model =
             [ paddingXY 40 40, spacing 10 ]
             [ documentListView model
             , (el Title [ width (px 400), height (px 40), padding 8 ] (text model.currentDocument.title))
-            , row None
+            , Keyed.row None
                 [ spacing 10 ]
-                [ renderInput1 model, renderInput2 model ]
+                [ ( (toString model.counter), renderInput1 model ) ]
             , (el Box [ width (px 400), height (px 100), padding 20 ] (text model.currentDocument.content))
             , (el Box [ width (px 100), height (px 40), padding 12 ]) (text (toString model.counter))
             ]
@@ -75,28 +75,6 @@ view model =
 
 renderInput1 model =
     textArea InputBox [ width (px 400), height (px 100), padding 20, onInput InputContent ] (model.currentDocument.content)
-
-
-renderInput2 model =
-    html
-        (Keyed.node
-            "div"
-            []
-            [ ( toString model.counter
-              , Html.textarea
-                    [ HA.defaultValue model.currentDocument.content
-                    , HE.onInput InputContent
-                    , HA.style
-                        [ ( "width", "380px" )
-                        , ( "height", "80px" )
-                        , ( "background-color", "orange" )
-                        , ( "padding", "10px" )
-                        ]
-                    ]
-                    []
-              )
-            ]
-        )
 
 
 update msg model =
